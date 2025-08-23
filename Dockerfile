@@ -1,10 +1,15 @@
+# Dockerfile
+# SPDX-License-Identifier: BSD-3-Clause
+# Copyright (c) 2025, Xnerv Wang <xnervwang@gmail.com>
+# This file is part of liteflow-conf-watcher-docker and is licensed under the BSD-3-Clause license.
+
 # syntax=docker/dockerfile:1
 FROM alpine:3.20
 
 LABEL org.opencontainers.image.title="liteflow-watcher" \
       org.opencontainers.image.description="Directory/file watcher that signals a Docker container via Docker Engine API" \
-      org.opencontainers.image.source="https://github.com/yourname/liteflow-watcher" \
-      org.opencontainers.image.licenses="MIT"
+      org.opencontainers.image.source="https://github.com/xnervwang/liteflow-conf-watcher-docker" \
+      org.opencontainers.image.licenses="BSD-3-Clause"
 
 # ---- Runtime deps ----
 RUN apk add --no-cache inotify-tools curl tzdata
