@@ -15,11 +15,13 @@ LABEL org.opencontainers.image.title="liteflow-watcher" \
 RUN apk add --no-cache inotify-tools curl tzdata
 
 # ---- Defaults (可被运行时环境变量覆盖) ----
+# Don't monitor `create` event, otherwise may send multiple signals when puller
+# updates the conf file.
 ENV TZ=Asia/Shanghai \
     TARGET=liteflow \
     CONF_FILE=/app/etc/liteflow.conf \
     SIGNAL=SIGUSR1 \
-    INOTIFY_EVENTS=close_write,create,moved_to
+    INOTIFY_EVENTS=close_write,moved_to
 
 # ---- Prepare fs layout ----
 RUN mkdir -p /app/etc /app/scripts
