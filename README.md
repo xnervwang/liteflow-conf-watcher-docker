@@ -1,5 +1,3 @@
-# README.md
-
 # liteflow-conf-watcher-docker
 
 监听配置文件（默认 `/app/etc/liteflow.conf`），在文件更新时通过 **Docker Engine API** 向目标容器发送信号（默认 `SIGUSR1`），用于优雅地触发应用重载（如 liteflow）。
